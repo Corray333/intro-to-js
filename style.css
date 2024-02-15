@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --black: #1b1b1b;
+    --green: #2C5944;
+    --orange: #F26E22;
+    --soft-pink: #F2CCB6;
+    --soft-yellow: #F2DD72;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: Montserrat;
+}
+
+*:focus{
+    outline: none;
+}
+
+body{
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+h1{
+    text-align: center;
+}
+.content{
+    max-width: 1240px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    width:fit-content;
+    background-color: var(--orange);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+button:hover{
+    transform: scale(1.1);
+}
+
+.task{
+    transform-origin: top center;
+    transition: all 0.5s ease-in-out;
+    max-height: 500px;
+    overflow: hidden;
+    height: auto;
+}
+
+
+.hidden{
+    max-height: 0 !important;
+}
+
+
+.task1{
+    text-align: center;
+    max-height: 20px;
+}
+
+
+/* Calendar */
+.task2{
+    max-height: 260px;
+}
+.calendar-container{
+    width: fit-content;
+    text-align: center;
+}
+.calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    border: 2px var(--orange) solid;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    gap: 2px;
+}
+
+.day{
+    border: 2px var(--orange) solid;
+    padding: 5px;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    border-radius: 5px;
+    grid-column: 5/5;
+    grid-row: 3/3;
+    transition: all 0.3s;
+}
+.day:hover{
+    background-color: var(--soft-pink);
+    border-color: var(--soft-pink);
+    cursor: pointer;
+}
+.day:hover p{
+
+    color: var(--green);
+}
+.weekend{
+    background-color: #F26E22;
+}
+.weekDays {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 7px;
+}
+
+/* Task 3 */
+.task3{
+    max-height: 35px;
+}
+
+/* Task 4 */
+.notDisplay{
+    display: none;
+}
+
+/* Task 5 */
+.task5>span{
+    display: flex;
+    gap: 10px
+}
+.task5>span>button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.task5>span>button:hover{
+    background-color: var(--soft-pink);
+    transform: none;
+    color: var(--green);
+}
+.task5>ol{
+    margin-left: 20px
+}

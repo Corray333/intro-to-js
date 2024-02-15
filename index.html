@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS lesson</title>
+</head>
+<body>
+    <h1>Задания по JS</h1>
+    <div class="content">
+        <button id="task1-button">Дата и время</button>
+        <div class="task task1 hidden">
+            <p id="time"></p>
+        </div>
+        <button id="task2-button">Календарь</button>
+        <div class="task task2 hidden">
+            <div class="calendar-container">
+                <h2></h2>
+                <span class="weekDays">
+                    <p>Пн</p>
+                    <p>Вт</p>
+                    <p>Ср</p>
+                    <p>Чт</p>
+                    <p>Пт</p>
+                    <p>Сб</p>
+                    <p>Вс</p>
+                </span>
+                <div class="calendar">
+                </div>
+            </div>
+        </div>
+        <button id="task3-button">Количество блоков</button>
+        <div class="task task3 hidden">
+            <h2 id="numberOfBlocks"></h2>
+        </div>
+        <button id="task4-button">Устроить апокалипсис</button>
+        <div class="task task4 hidden">
+            <h2>Случайные блоки будут удаляться из видимости каждые 120мс.</h2>
+        </div>
+        <button id="task5-button">Добавление элементов</button>
+        <div class="task task5 hidden">
+            <span>
+                <h3>Просто список</h3>
+                <button id="newListItemBtn">+</button>
+            </span>
+            <ol>
+
+            </ol>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
