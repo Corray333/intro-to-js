@@ -1,4 +1,4 @@
-const tasksNumber = 5
+const tasksNumber = 9
 for (let i = 1; i<=tasksNumber; i++){
     const task_button = document.querySelector(`#task${i}-button`)
     if (task_button == null) continue
@@ -34,7 +34,7 @@ let day = time.getDay()
 let i = 1
 time.setDate(1)
 let row = 1
-let column = day
+let column = time.getDay()
 
 const monthsNoEnding = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -109,3 +109,30 @@ newListItemBtn.addEventListener('click', ()=>{
     })
 })
 
+
+// Task 6
+const task6_pic = document.querySelector('.task6-img')
+let counter6 = 0
+task6_pic.addEventListener('mouseleave', ()=>{
+    counter6 = (counter6+1)%4
+    task6_pic.style.backgroundImage = `url("assets/pic${counter6}.png")`    
+})
+
+// Task 7
+const task7_list = document.querySelector(".task7-list")
+const task7_header = document.querySelector(".task7>p")
+const task7_header_icon = document.querySelector(".task7>p>img")
+let counter7 = 0
+for (let i = 0; i<task7_list.children.length-1; i++){
+    task7_list.children[i].addEventListener("click", ()=>{
+        task7_list.children[i].style.display='none'
+        counter7++
+        if (counter7==3){
+            document.querySelector("#endOfListItem").style.display = 'block'
+        }
+    })
+}
+task7_header.addEventListener("click", ()=>{
+    task7_list.classList.toggle("hidden")
+    task7_header_icon.classList.toggle("task7-icon_rotate")
+})
