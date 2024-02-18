@@ -16,7 +16,11 @@
         <button id="task2-button">Календарь</button>
         <div class="task task2 hidden">
             <div class="calendar-container">
-                <h2></h2>
+                <span class="calendar-months">
+                    <img src="assets/arrow.png" class="calendar-arrow calendar-arrow-left" style="rotate: 180deg;" alt="">
+                    <h2></h2>
+                    <img src="assets/arrow.png" class="calendar-arrow calendar-arrow-right" alt="">
+                </span>
                 <span class="weekDays">
                     <p>Пн</p>
                     <p>Вт</p>
@@ -64,17 +68,22 @@
         </div>
         <button id="task9-button">Форма</button>
         <div class="task task9 hidden">
+            <div class="character">
+                <div class="eye eye1"></div>
+                <div class="eye eye2"></div>
+                <img src="assets/bear.png" alt="">
+            </div>
             <h2>Анкета WEB-разработчика</h2>
             <form>
                 <div class="input-block">
                     <p>Имя пользователя</p>
-                    <input type="text" name="" id="">
+                    <input type="text" name="" id="username">
                 </div>
                 <div class="input-block">
                     <p>Почта</p>
-                    <input type="text" name="" id="" pattern="[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z]+">
+                    <input type="text" name="" id="email" pattern="[A-Za-z0-9]{2,}@([A-Za-z0-9]{2,}\.)+[A-Za-z]+">
                 </div>
-                <div class="input-block">
+                <div class="input-block checkboxes-container">
                     <p>Стек технологий</p>
                 <div class="checkboxes">
                     <div class="checkbox">
@@ -112,22 +121,26 @@
                 </div>
                 </div>
                 <div class="input-block">
-                    <p>Опыт работы</p>
-                    <input type="text" name="" id="">
+                    <p>Телефон</p>
+                    <input type="text" name="" id="phone" pattern="(\+7|8)\d{10}">
                 </div>
                 <div class="input-block">
-                    <p>О себе</p>
-                    <input type="text" name="" id="">
+                    <p>Образование</p>
+                    <input type="text" name="" id="about">
                 </div>
                 <div class="input-block">
                     <p>Пароль</p>
-                    <input type="password" name="" id="">
+                    <input type="password" name="" id="password">
                 </div>
                 <div class="input-block">
                     <p>Повторите пароль</p>
-                    <input type="password" name="" id="">
+                    <input type="password" name="" id="passwordAgain">
                 </div>
-                <button>Отправить</button>
+                <div class="input-block textarea">
+                    <p>О себе</p>
+                    <textarea name="" id="" rows="5"></textarea>
+                </div>
+                <button id="sendBtn" type="button">Отправить</button>
             </form>
         </div>
     </div>

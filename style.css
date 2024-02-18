@@ -56,8 +56,20 @@ input{
     border: 2px solid var(--orange);
     padding: 5px;
     border-radius: 5px;
-    width: 250px;
+    width: 100%;
     transition: all 0.5s ease-in-out;
+}
+textarea{
+    background: none;
+    border: 2px solid var(--orange);
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 100%;
+    transition: border-color 0.5s ease-in-out;
+}
+textarea:focus{
+    border-color: var(--soft-yellow);
 }
 input:focus{
     border-color: var(--soft-yellow);
@@ -85,12 +97,30 @@ input:focus{
 
 /* Calendar */
 .task2{
-    max-height: 260px;
+    max-height: 300px;
 }
 .calendar-container{
     width: fit-content;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+.calendar-months{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.calendar-arrow{
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.calendar-arrow:hover{
+    transform: scale(1.2);
+}
+
 .calendar{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -112,6 +142,7 @@ input:focus{
     grid-column: 5/5;
     grid-row: 3/3;
     transition: all 0.3s;
+    background-color: var(--green);
 }
 .day:hover{
     background-color: var(--soft-pink);
@@ -206,18 +237,46 @@ input:focus{
 /* Task 9 */
 .task9{
     max-height: 750px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.character{
+    position: relative;
+}
+.character>img{
+    width: 250px;
+}
+.character .eye{
+    width: 20px;
+    height: 20px;
+    background-color: var(--black);
+    border-radius: 50%;
+    position: absolute;
+    top: 125px;
+    transition: all 0.3s ease-in-out;
+}
+.eye1{
+    left: 63px;
+}
+.eye2{
+    right: 63px;
 }
 .task9>form{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
+}
+.checkboxes-container{
+    grid-column: 1/ span 2;
 }
 .task9>form .checkboxes{
     display: flex;
     flex-wrap: wrap;
     gap: 0 25px;
     width: 100%;
+    grid-column: 1/2;
 }
 .checkbox {
     display: block;
@@ -269,4 +328,12 @@ transform: rotate(45deg);
     transform: none;
     background-color: var(--soft-pink);
     color: var(--green);
+}
+
+.task9 .textarea{
+    grid-column: 1/ span 2;
+    width: 100%;
+}
+.task9 textarea{
+    /* width: 100%; */
 }
