@@ -19,7 +19,14 @@
 *:focus{
     outline: none;
 }
-
+a{
+    text-decoration: none;
+    text-shadow: var(--black) 1px 1px 10px;
+}
+body>canvas{
+    position: fixed;
+    right: 200px;
+}
 body{
     background-color: var(--green);
     display: flex;
@@ -27,6 +34,7 @@ body{
     align-items: center;
     padding: 25px;
 }
+
 h1{
     text-align: center;
 }
