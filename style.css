@@ -25,7 +25,7 @@ a{
 }
 body>canvas{
     position: fixed;
-    right: 200px;
+    right: 0px;
 }
 body{
     background-color: var(--green);
@@ -58,6 +58,7 @@ button{
 button:hover{
     transform: scale(1.1);
 }
+
 
 input{
     background: none;
@@ -208,7 +209,7 @@ input:focus{
 .task6-img{
     width: 250px;
     height: 250px;
-    background: url("assets/pic1.png");
+    background: url("assets/pic0.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -239,6 +240,21 @@ input:focus{
 }
 .task7-icon_rotate{
     transform: rotate(90deg);
+}
+
+/* Task 8 */
+.task8-container{
+    position: relative;
+    background-color: #F2CCB6;
+    width: 500px;
+    height: 500px;
+}
+#task8-img{
+    position: absolute;
+    background: url("/assets/slider3.jpeg");
+    width: 100%;
+    height: 100%;
+    opacity: 1;
 }
 
 
@@ -307,7 +323,6 @@ cursor: pointer;
 
 .checkbox label:before {
 content:'';
--webkit-appearance: none;
 background-color: transparent;
 border: 2px solid var(--orange);
 border-radius: 5px;
@@ -342,6 +357,4 @@ transform: rotate(45deg);
     grid-column: 1/ span 2;
     width: 100%;
 }
-.task9 textarea{
-    /* width: 100%; */
-}
+

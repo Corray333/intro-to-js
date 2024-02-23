@@ -1,7 +1,3 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-
 const tasksNumber = 9
 for (let i = 1; i<=tasksNumber; i++){
     const task_button = document.querySelector(`#task${i}-button`)
@@ -86,6 +82,7 @@ document.querySelector('.calendar-arrow-right').addEventListener('click', ()=>{
 const task3_button = document.querySelector('#task3-button')
 task3_button.addEventListener('click', ()=>{
     let blocks = document.getElementsByTagName('div')
+    console.log(blocks)
     document.querySelector('#numberOfBlocks').innerText = `Количество блоков: ${blocks.length}`    
 })
 
@@ -118,16 +115,18 @@ let listEls
 newListItemBtn.addEventListener('click', ()=>{
     const list = document.querySelector('.task5>ol')
     const newItem = document.createElement('li')
-    newItem.innerText = prompt('Введите текст для нового элемента списка')
+    let newItemText = prompt('Введите текст для нового элемента списка')
+    if (newItemText == null) return
+    newItem.innerText = newItemText
     list.appendChild(newItem)
-    listEls = document.querySelectorAll('.task5>ol>li')
-    let i = listEls.length-2
-    if (i<=-1) return
-    listEls[i].addEventListener('click', ()=>{
-        let temp = listEls[i].innerText
-        listEls[i].innerText = listEls[i+1].innerText
-        listEls[i+1].innerText = temp
-    })
+})
+const list5 = document.querySelector('.task5>ol')
+list5.addEventListener('click', (e)=>{
+    let i = Array.prototype.indexOf.call(list5.children, e.target)
+    if (i==0) i++
+    let temp = list5.children[i-1].innerText
+    list5.children[i-1].innerText = list5.children[i].innerText
+    list5.children[i].innerText = temp
 })
 
 
@@ -136,26 +135,67 @@ const task6_pic = document.querySelector('.task6-img')
 let counter6 = 0
 task6_pic.addEventListener('mouseleave', ()=>{
     counter6 = (counter6+1)%4
+    console.log(counter6)
     task6_pic.style.backgroundImage = `url("assets/pic${counter6}.png")`    
 })
 
-// Task 7
+// Task 7 TODO: DONE
 const task7_list = document.querySelector(".task7-list")
 const task7_header = document.querySelector(".task7>p")
 const task7_header_icon = document.querySelector(".task7>p>img")
 let counter7 = 0
-for (let i = 0; i<task7_list.children.length-1; i++){
-    task7_list.children[i].addEventListener("click", ()=>{
-        task7_list.children[i].style.display='none'
+task7_list.addEventListener('click', (e)=>{
+    if (counter7==3) return
+    fadeOut(e.target, ()=>{
+        task7_list.removeChild(e.target)
         counter7++
         if (counter7==3){
             document.querySelector("#endOfListItem").style.display = 'block'
         }
     })
+})
+
+const fadeOut = (el, callback)=>{
+    el.style.opacity = 1
+    let interval = setInterval(() => {
+        el.style.opacity -= 0.01
+        if (el.style.opacity <= 0){
+            clearInterval(interval)
+            callback()
+        }
+    }, 1);
 }
 task7_header.addEventListener("click", ()=>{
     task7_list.classList.toggle("hidden")
     task7_header_icon.classList.toggle("task7-icon_rotate")
+})
+
+// Task 8
+const task8_container = document.querySelector('.task8-container')
+const task8_img = document.querySelector('#task8-img')
+task8_img.style.opacity = '1'
+const changeOpacity = (a)=>{
+    task8_img.style.opacity = parseFloat(task8_img.style.opacity)+a
+    if (parseFloat(task8_img.style.opacity) == 0 || parseFloat(task8_img.style.opacity) == 1){
+        if (task8_img.style.opacity == 0) task8_img.style.display = 'none'
+        else task8_img.style.display = 'block'
+        return
+    }
+    console.log(task8_img.style.opacity)
+
+    setTimeout(() => {
+        changeOpacity(a)
+    }, 10);
+}
+let f = false
+task8_container.addEventListener('click', ()=>{
+    f = !f
+    console.log(f)
+    if (f) changeOpacity(-0.01)
+    else {
+        task8_img.style.display = 'block'
+        changeOpacity(0.01)
+    }
 })
 
 // Task 9-10
@@ -271,7 +311,7 @@ loader.load( 'assets/tg.glb', function ( gltf ) {
 
 
 
-const pointLight = new THREE.PointLight(0xffffff, 200, 100)
+const pointLight = new THREE.PointLight(0xffffff, 100, 100)
 pointLight.position.set(5, 5, 5)
 scene.add(pointLight)
 
@@ -350,7 +390,7 @@ function onClick(event) {
 const labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(800, 800);
 labelRenderer.domElement.style.position = 'absolute';
-labelRenderer.domElement.style.right = '200px';
+labelRenderer.domElement.style.right = '0';
 document.body.appendChild(labelRenderer.domElement);
 
 
