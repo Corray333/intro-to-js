@@ -83,11 +83,20 @@
             <h2>Анкета WEB-разработчика</h2>
             <form>
                 <div class="input-block">
-                    <p>Имя пользователя</p>
-                    <input type="text" name="" id="username">
+                    <div class="input-header">
+                        <p>Имя пользователя</p>
+                        <button class="info-btn">i</button>
+                    </div>
+                    <input pattern="[А-Яа-я-\s]" type="text" name="" id="username">
                 </div>
                 <div class="input-block">
-                    <p>Почта</p>
+                    <div class="input-header">
+                        <p>Почта</p>
+                        <button type="button" class="info-btn">i</button>
+                        <div class="info-about-input hidden-opacity">
+                            Почта должна быть норм.
+                        </div>
+                    </div>
                     <input type="text" name="" id="email" pattern="[A-Za-z0-9]{2,}@([A-Za-z0-9]{2,}\.)+[A-Za-z]+">
                 </div>
                 <div class="input-block checkboxes-container">
@@ -128,20 +137,35 @@
                 </div>
                 </div>
                 <div class="input-block">
-                    <p>Телефон</p>
+                    <div class="input-header">
+                        <p>Телефон</p>
+                        <button class="info-btn">i</button>
+                    </div>
                     <input type="text" name="" id="phone" pattern="(\+7|8)\d{10}">
                 </div>
                 <div class="input-block">
-                    <p>Образование</p>
-                    <input type="text" name="" id="about">
+                    <div class="input-header">
+                        <p>Логин</p>
+                        <button class="info-btn">i</button>
+                        <div class="info-about-input hidden-opacity">
+                            <p>Поле «Логин» должно содержать от 3 до 16 символов латинского алфавита или цифры 0-9</p>
+                        </div>
+                    </div>
+                    <input type="text" name="login" id="login" pattern="[A-Za-z0-9]{3,16}">
                 </div>
                 <div class="input-block">
-                    <p>Пароль</p>
-                    <input type="password" name="" id="password">
+                    <div class="input-header">
+                        <p>Пароль</p>
+                        <button class="info-btn">i</button>
+                    </div>
+                    <input required type="password" name="" id="password" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$">
                 </div>
                 <div class="input-block">
-                    <p>Повторите пароль</p>
-                    <input type="password" name="" id="passwordAgain">
+                    <div class="input-header">
+                        <p>Повторите пароль</p>
+                        <button class="info-btn">i</button>
+                    </div>
+                    <input required type="password" name="" id="passwordAgain" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$">
                 </div>
                 <div class="input-block textarea">
                     <p>О себе</p>

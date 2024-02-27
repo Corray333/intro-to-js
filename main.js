@@ -200,9 +200,50 @@ task8_container.addEventListener('click', ()=>{
 
 // Task 9-10
 const sendBtn = document.querySelector("#sendBtn")
+const form = document.querySelector("form")
+let password
+form.addEventListener('focusout', (e)=>{
+    if (e.target.tagName != 'INPUT') return
+    let err = false
+    switch (e.target.id) {
+        case 'email':
+            const email = document.querySelector("#email")
+            const emeilRX = /[A-Za-z0-9]{2,}@([A-Za-z0-9]{2,}\.)+[A-Za-z]+/
+            if (!emeilRX.test(email.value)){
+                err = true
+            } 
+            break;
+        case 'password':
+            password = document.querySelector("#password")
+            if (password.value == ''){
+                err = true
+            }
+            break
+        case 'passwordAgain':
+            password = document.querySelector("#password")
+            const passwordAgain = document.querySelector("#passwordAgain")
+            if (password.value != passwordAgain.value){
+                err = true
+            }
+            break
+        default:
+            break;
+    }
+    let header = e.target.parentElement.children[0]
+    if (err){
+        header.children[header.children.length-2].classList.add('red')
+    } else{
+        header.children[header.children.length-2].classList.remove('red')
+    }
+})
+form.addEventListener("click", (e)=>{
+    if (e.target.classList.contains("info-btn")){
+        e.target.parentElement.children[e.target.parentElement.children.length-1].classList.toggle("hidden-opacity")
+    }
+})
 sendBtn.addEventListener('click', ()=>{
     const email = document.querySelector("#email")
-    const username = document.querySelector("#email")
+    const login = document.querySelector("#login")
     const phone = document.querySelector("#phone")
     const about = document.querySelector("#about")
     const password = document.querySelector("#password")

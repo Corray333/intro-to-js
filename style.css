@@ -24,7 +24,7 @@ a{
     text-shadow: var(--black) 1px 1px 10px;
 }
 body>canvas{
-    position: fixed;
+    position: absolute;
     right: 0px;
 }
 body{
@@ -261,7 +261,7 @@ input:focus{
 /* Task 9 */
 .task9{
     max-height: 750px;
-    max-width: 500px;
+    /* max-width: 500px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -286,6 +286,47 @@ input:focus{
 }
 .eye2{
     right: 63px;
+}
+.input-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    width: fit-content;
+}
+.info-btn{
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-style: normal;
+    font-size: 12px;
+    background: transparent;
+    padding: 0;
+    font-weight: bold;
+    color: white;
+    opacity: 0;
+}
+.info-about-input{
+    position: absolute;
+    background: #2C5944;
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    width: 200px;
+    right: -205px;
+    padding: 15px;
+    transition: all 0.3s;
+}
+.hidden-opacity{
+    opacity: 0;
+}
+.red{
+    color: var(--orange);
+    border-color: var(--orange);
+    opacity: 1;
 }
 .task9>form{
     display: grid;
